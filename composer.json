@@ -1,0 +1,14 @@
+{
+    "name": "sitedigitaloficial/calendario",
+    "description": "Site Digital S.A.S Calendario Módulo para la gestión y adminstración de eventos",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SiteDigital",
+            "email": "desarrollo@sitedigital.com.co"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
