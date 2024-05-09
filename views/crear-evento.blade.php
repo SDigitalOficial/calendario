@@ -56,12 +56,12 @@
         </div>
 
         <div class="form-group">
-         <label class="col-md-3 control-label" for="example-password-input">Descripción</label>
-          <div class="col-md-9">
-           {{Form::textarea('body', '', array('class' => 'form-control','placeholder'=>'Ingrese descripción'))}}
-          </div>
+          <label class="col-md-3 control-label" for="example-text-input">Contenido</label>
+           <div class="col-md-9">
+           {{Form::textarea('body', '', array('class' => 'ckeditor','id' => 'editor','placeholder'=>'Ingrese contenido'))}}
+           </div>
         </div>
-
+        
         <div class="form-group">
          <label class="col-md-3 control-label" for="example-password-input">Imagen</label>
           <div class="col-md-9">
@@ -145,8 +145,27 @@
   {{ Html::script('modulo-calendario/js/bootstrap-datetimepicker.min.js') }}
   {{ Html::script('modulo-calendario/js/validator.js')}}
   {{ Html::script('//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js') }} 
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script><script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('button-image').addEventListener('click', (event) => {
+      event.preventDefault();
+      window.open('/file-manager/fm-button', 'fm', 'width=900,height=500');
+    });
+  });
+  // set file link
+  function fmSetLink($url) {
+    document.getElementById('image_label').value = $url;
+  }
+</script>
+
+
+<script src="https://cdn.ckeditor.com/4.11.2/full/ckeditor.js"></script>
+
+<script>
+  CKEDITOR.replace( 'editor', {filebrowserImageBrowseUrl: '/file-manager/ckeditor'});
+</script>
  
 @stop
 
